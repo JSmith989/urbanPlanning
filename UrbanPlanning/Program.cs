@@ -6,6 +6,11 @@ namespace UrbanPlanning
     {
         static void Main(string[] args)
         {
+            City Chicago = new City("Chicago")
+            {
+                Mayor = "Lori Lightfoot"
+            };
+
             Building FiveOneTwoEight = new Building("512 8th Avenue")
             {
                 Width = 30.7,
@@ -25,6 +30,7 @@ namespace UrbanPlanning
                 Stories = 1,
             };
 
+            Chicago.Establish();
             FarmHouse.Construct();
             SearsTower.Construct();
             FiveOneTwoEight.Construct();
@@ -33,9 +39,16 @@ namespace UrbanPlanning
             SearsTower.Purchase("Holly Smith");
             FiveOneTwoEight.Purchase("Gordon Ramsay");
 
-            FarmHouse.ShowInfo();
-            SearsTower.ShowInfo();
-            FiveOneTwoEight.ShowInfo();
+            Chicago.AddBuilding(FarmHouse);
+            Chicago.AddBuilding(SearsTower);
+            Chicago.AddBuilding(FiveOneTwoEight);
+
+            Chicago.Display();
+
+            foreach (Building building in Chicago.listOfBuildings)
+            {
+                building.ShowInfo();
+            }
         }
     }
 }

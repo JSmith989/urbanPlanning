@@ -7,7 +7,7 @@ namespace UrbanPlanning
     class Building
     {
 
-        // you will need this collection at some point List<int> myListOfIntegers = new List<int>();
+       
 
         //Fields
         private string _designer = "Jordan Smith";
